@@ -1,0 +1,25 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block body_base %}
+{% url "success" as success_url %}
+<link href="{% static "css/upload.css" %}" rel="stylesheet">
+<br/>
+<center>
+    <ul id="progressbar">
+            <li class="active">Study Id Seeds</li>
+            <li class="active">Anonymize Locally</li>
+            <li>Upload Images</li>
+    </ul>
+    <div style="width:800px; margin:0 auto;">
+        <h2> Study Id {{ hash_value }} </h2><br/><br/>
+        <form action="{{ success_url }}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ upload_form.as_p  }}
+        <input type='submit' value='Submit' class='btn btn-primary'>
+</form>
+</center>
+{% endblock %}

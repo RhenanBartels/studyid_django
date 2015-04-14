@@ -1,0 +1,29 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block body_base %}
+
+{% url "upload_generate" as generate %}
+
+<link href="{% static "css/upload.css" %}" rel="stylesheet">
+<br/>
+<center>
+    <ul id="progressbar">
+            <li class="active">Study Id Seeds</li>
+            <li>Anonymize Locally</li>
+            <li>Upload Images</li>
+    </ul>
+    <div style="width:800px; margin:0 auto;">
+    <h2 style="color: #2C3E50; text-transform: uppercase"> Study Id Seeds </h2>
+    <h3 style="color: #666"> Step 1 </h3>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Submit' class='btn btn-primary'>
+    </form>
+</center>
+{% endblock %}
