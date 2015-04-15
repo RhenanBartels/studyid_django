@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Image(models.Model):
-    owner = models.ForeignKey(User, unique=True)
+    owner = models.ForeignKey(User)
     studyid = models.CharField(max_length=10)
     date = models.DateField()
     image = models.FileField()

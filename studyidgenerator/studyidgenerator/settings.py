@@ -117,6 +117,7 @@ WSGI_APPLICATION = "studyidgenerator.wsgi.application"
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
     os.path.join(PROJECT_ROOT, "upload", "templates"),
+    os.path.join(PROJECT_ROOT, "download", "templates"),
 ]
 
 INSTALLED_APPS = [

@@ -12,6 +12,7 @@ urlpatterns = patterns(
     url(r"^admin/", include(admin.site.urls)),
     url(r"^accounts/", include("account.urls")),
     url(r"upload/", include("upload.urls")),
+    url(r"download/", include("download.urls")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

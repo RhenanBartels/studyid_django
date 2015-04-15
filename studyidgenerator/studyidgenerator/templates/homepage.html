@@ -9,37 +9,55 @@
 {% block body_base %}
 {% url "account_login" as login_url %}
 {% url "account_signup" as signup_url %}
+{% url "upload_page" as upload_page %}
+{% url "download_page" as download_page %}
     <section class="jumbotron">
         <div class="container">
             {% include "_messages.html" %}
-            <h1>{% blocktrans %}Welcome to<br>pinax-project-account{% endblocktrans %}</h1>
+            <h1>{% blocktrans %}Welcome to<br><span style='color:#2ECCFA'>Study Id</span>
+                Generator{% endblocktrans %}</h1>
             <p>
-                {% blocktrans %}
-                In addition to what is provided by the "zero" project, this project
-                provides thorough integration with django-user-accounts, adding
-                comprehensive account management functionality. It is a foundation
-                suitable for most sites that have user accounts.
-                {% endblocktrans %}
+                Now it`s easy to store and make your DICOM images safe. Study Id
+                Generator allows you to upload and persist DICOM images to
+                manage studies and keep patient`s information safe. Sign Up and
+                store all your anonymized DICOM files here!
             </p>
             {% if not user.is_authenticated %}
             <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
     <section>
         <div class="container">
-            <h2 class="text-center">{% blocktrans %}What is Pinax?{% endblocktrans %}</h2>
+            <h2 class="text-center">{% blocktrans %}What is Study Id?{% endblocktrans %}</h2>
             <p class="lead">
                 {% blocktrans %}
-                <b>Pinax</b> is an open-source platform based on Django and
-                intended to provide a starting point for websites. It takes
-                care of the things that many sites have in common, so you can
-                focus on what makes your site different.
+                <b>Study Id</b> Genereator is free web API which attempt to
+                organize researches that deals with DICOM images.
+                Whenever a study wants to analyze images from Computadorized
+                Tomography there is the concern about the patitent privacy.
+                To guarantee that all personal information -year-archiveill be hide, <b>
+                Study Id </b> Generator allows you to store anonymized DICOM
+                files in our database.
+                After the anonymization a Study Id for each patient will be
+                generated so you can find your patients not by the name, but
+                by a reference number.
                 {% endblocktrans %}
             </p>
         </div>
-    </section>
+        </section>
+    {% else %}
+    <section>
+        <div class="container">
+            <p class="lead text-center">
+                {% blocktrans %}
+                <!--See <a href="http://pinaxproject.com/">pinaxproject.com</a>-->
+                <a href="{{ upload_page }}" class="btn btn-primary">Entry New Patient</a>
+                <a href="{{ download_page }}" class="btn btn-primary">Download DICOM</a>
+                {% endblocktrans %}
+            </p>
+        </div>
+        </section>
             {% endif %}
         </div>
     </section>
-    <section>
         <div class="container">
             <p class="lead text-center">
                 {% blocktrans %}

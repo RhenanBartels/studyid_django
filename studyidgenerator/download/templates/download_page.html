@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block body_base %}
+{% url "success" as success_url %}
+<link href="{% static "css/upload.css" %}" rel="stylesheet">
+<br/>
+<center>
+    <h2> Downlad </h2>
+    <div>
+        {%for req in result %}
+        <ul>
+            <li> <a href="">{{ req.studyid }}</a></li>
+        </ul>
+        {% endfor %}
+    </div>
+</center>
+{% endblock %}

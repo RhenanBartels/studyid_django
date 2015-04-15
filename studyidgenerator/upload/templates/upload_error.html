@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block body_base %}
+
+<link href="{% static "css/upload.css" %}" rel="stylesheet">
+<br/>
+<center>
+    {% if error == "NotAnonymized" %}
+    <h2> Not Anonymized </h2>
+    <p style="font-size:130%"> Hello {{ user }}, the Images that you tried to upload were not
+    anonymized. The operation was canceled and the Images were not stored. </p>
+    {% else %}
+        <h2> More than one patient</h2>
+    {% endif %}
+    <a href=>More Information </a>
+</center>
+{% endblock %}

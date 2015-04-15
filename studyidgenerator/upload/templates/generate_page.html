@@ -15,7 +15,7 @@
             <li>Upload Images</li>
     </ul>
     <div style="width:800px; margin:0 auto;">
-        <h2> Study Id {{ hash_value }} </h2><br/><br/>
+        <h2> <span style="color:#A0A0A0">Study Id: </span>{{hash_value }}</h2><br/><br/>
         <form action="{{ success_url }}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ upload_form.as_p  }}
