@@ -7,6 +7,7 @@ import zipfile
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.core.files.temp import NamedTemporaryFile
 
 from .forms import SeedsForm, UploadForm
@@ -23,6 +24,11 @@ def index(request):
         birthday = form.clean_birthday()
         studydate = form.clean_studydate()
         hash_value = _create_id(birthday, studydate)
+        user = request.user
+        studyid_query = Image.objects.all().filter(owner=user,
+                studyid=hash_value)
+        if studyid_query:
+            return HttpResponse('<html><body><h2>Deu Merda</h2></body></html>')
         image_form = UploadForm()
         template = 'generate_page.html'
         context = {'hash_value': hash_value, 'upload_form': image_form}
