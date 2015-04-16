@@ -56,7 +56,7 @@ def success(request):
     return render(request, template, context)
 
 def _create_id(birthday, studydate):
-    return str(hashlib.sha224(birthday + studydate).hexdigest()[0:11])
+    return str(hashlib.sha224(birthday + studydate).hexdigest()[0:10])
 
 def handle_uploaded_file(request):
     anonymous = Anonymize(silent=True)

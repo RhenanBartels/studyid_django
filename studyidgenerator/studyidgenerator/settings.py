@@ -141,6 +141,7 @@ INSTALLED_APPS = [
     # project
     "studyidgenerator",
     "upload",
+    "download",
 ]
 
 # A sample logging configuration. The only tangible logging

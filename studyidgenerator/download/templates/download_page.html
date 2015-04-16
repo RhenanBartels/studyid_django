@@ -5,17 +5,27 @@
 
 
 {% block body_base %}
-{% url "success" as success_url %}
+{% url "upload_page" as upload_page %}
 <link href="{% static "css/upload.css" %}" rel="stylesheet">
 <br/>
 <center>
-    <h2> Downlad </h2>
     <div>
-        {%for req in result %}
-        <ul>
-            <li> <a href="">{{ req.studyid }}</a></li>
-        </ul>
-        {% endfor %}
+        {% if result %}
+            <h2> Download </h2>
+            <ul>
+            {%for req in result %}
+                <li style="font-size:160%"> <a href="{{ req.studyid }}" >{{ req.studyid }}<img src=
+                    "{% static  "images/zip_image.png" %}"/> </li></a>
+                <img src="{% static "images/trash.png" %}"/><br/><br/><br/>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2> No Files Yet </h2><br/>
+            <p style="font-size:130%"> Hello {{ user }}, you have not uploaded
+            any files yet. Please entry your first patient in the following button
+            or watch our tutorial video <a href"">here</a></p> <br/>
+                    <a href="{{ upload_page }}" class="btn btn-primary">Entry First Patient</a>
+        {% endif %}
     </div>
 </center>
 {% endblock %}
